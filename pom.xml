@@ -25,12 +25,12 @@
 <!--            <version>5.1.0.Final</version>-->
 <!--        </dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>6.1.0.Final</version>
-        </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate.validator</groupId>-->
+<!--            <artifactId>hibernate-validator</artifactId>-->
+<!--            <version>6.1.0.Final</version>-->
+<!--        </dependency>-->
 
 
 <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate.common/hibernate-commons-annotations &ndash;&gt;-->
@@ -40,12 +40,12 @@
 <!--            <version>5.1.0.Final</version>-->
 <!--        </dependency>-->
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate/hibernate-core &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.hibernate</groupId>-->
-<!--            <artifactId>hibernate-core</artifactId>-->
-<!--            <version>5.1.0.Final</version>-->
-<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.10.Final</version>
+        </dependency>
 
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
