@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import tt.psc.entity.Customer;
 import tt.psc.service.CustomerService;
@@ -28,5 +30,28 @@ public class CustomerController {
         model.addAttribute("customers", customersList);
 
         return "list-customers";
+    }
+
+    @GetMapping("/showFormForAdd")
+    public String showFormForAdding(Model model){
+
+        //add empty Customer object to AddForm, so it can save changes
+        Customer theCustomer = new Customer();
+
+        //add attribute to model
+        model.addAttribute("customer", theCustomer);
+
+        //return standard view
+        return "customer-form";
+    }
+
+    @PostMapping("/saveCustomer")
+    public String addCustomer(@ModelAttribute("customer") Customer theCustomer){
+
+        //save coustomer using service
+        customerService.saveCustomer(theCustomer);
+
+        //redirect from save customer to mapping /customer/list
+        return "redirect:/customer/list";
     }
 }

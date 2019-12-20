@@ -23,6 +23,13 @@
 
     <div id="container">
         <div id="content">
+
+            <!-- put new button: Add Customer -->
+            
+            <input type="button" value="Add Customer"
+                onclick="window.location.href='showFormForAdd'; return false"
+                class="add-button"  />
+
             <!-- add html table here -->
             <table>
                 <tr>
@@ -31,7 +38,7 @@
                     <th>Email</th>
                 </tr>
 
-                <!-- print customers ine a loop -->
+                <!-- print customers in a loop -->
                 <c:forEach var="tempCustomer" items="${customers}">
 
                     <tr>
