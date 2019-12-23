@@ -30,7 +30,7 @@ public class CustomerController {
     }
 
     @GetMapping("/showFormForAdd")
-    public String showFormForAdding(Model model){
+    public String showFormForAdding(Model model) {
 
         //add empty Customer object to AddForm, so it can save changes
         Customer theCustomer = new Customer();
@@ -43,7 +43,7 @@ public class CustomerController {
     }
 
     @PostMapping("/saveCustomer")
-    public String addCustomer(@ModelAttribute("customer") Customer theCustomer){
+    public String addCustomer(@ModelAttribute("customer") Customer theCustomer) {
 
         //save coustomer using service
         customerService.saveCustomer(theCustomer);
@@ -53,7 +53,7 @@ public class CustomerController {
     }
 
     @GetMapping("/showFormForUpdate")
-    public String updateCustomer(@RequestParam("customerId") Integer theInteger, Model model){
+    public String updateCustomer(@RequestParam("customerId") Integer theInteger, Model model) {
 
         //get customer from Database
         Customer theCustomer = customerService.getCustomerWithId(theInteger);
@@ -66,11 +66,23 @@ public class CustomerController {
     }
 
     @GetMapping("/delete")
-    public String deleteCustomer(@RequestParam("customerId") Integer theId){
+    public String deleteCustomer(@RequestParam("customerId") Integer theId) {
 
         //delete customer from Database
         customerService.deleteCustomer(theId);
 
         return "redirect:/customer/list";
+    }
+
+    @GetMapping("/search")
+    public String searchCustomer(@RequestParam("theSearchName") String searchName, Model model) {
+
+        //get customers from the service
+        List<Customer> customersList = customerService.searchForCustomers(searchName);
+
+        //add customers to model
+        model.addAttribute("customers", customersList);
+
+        return "list-customers";
     }
 }

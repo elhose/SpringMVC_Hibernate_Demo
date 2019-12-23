@@ -9,4 +9,5 @@ public interface CustomerDAO {
     void saveCustomer(Customer theCustomer);
     Customer getCustomer(Integer theInteger);
     void removeCustomer(Integer theId);
+    List<Customer> searchForCustomers(String searchName);
 }
